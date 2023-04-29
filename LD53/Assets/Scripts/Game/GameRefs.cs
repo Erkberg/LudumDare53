@@ -47,5 +47,18 @@ namespace LD53
 
             return nextLockedHatches;
         }
+
+        public Unlocker GetActivatedUnfinishedUnlocker()
+        {
+            foreach(Unlocker unlocker in unlockers)
+            {
+                if(unlocker.IsActive() && !unlocker.finished)
+                {
+                    return unlocker;
+                }
+            }
+
+            return null;
+        }
     }
 }

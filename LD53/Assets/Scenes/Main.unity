@@ -997,6 +997,13 @@ MonoBehaviour:
     unlockedCagesHatches: 22
     productionTime: 6
     hatchTime: 8
+    cageUnlocker: {fileID: 719922412}
+    increaseBasketSize: 0
+    textLine: Repeat.
+  - cagesToProgress: 200
+    unlockedCagesHatches: 22
+    productionTime: 6
+    hatchTime: 8
     cageUnlocker: {fileID: 0}
     increaseBasketSize: 0
     textLine: Repeat.
@@ -3168,6 +3175,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150109fada63f1144890f463372ecbf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &719922410
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 798802849}
+    m_Modifications:
+    - target: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -38.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120073, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: m_Name
+      value: Unlocker_02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+--- !u!4 &719922411 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+  m_PrefabInstance: {fileID: 719922410}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &719922412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2946229845322120071, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+  m_PrefabInstance: {fileID: 719922410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c79434b1bf90b468b6f0a001b27ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &740112976
 GameObject:
   m_ObjectHideFlags: 0
@@ -3461,6 +3541,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 396577752}
+  - {fileID: 719922411}
   m_Father: {fileID: 1672570580}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9912,7 +9993,9 @@ MonoBehaviour:
   - {fileID: 422104040}
   - {fileID: 800175114}
   - {fileID: 832884891}
-  unlockers: []
+  unlockers:
+  - {fileID: 396577753}
+  - {fileID: 719922412}
 --- !u!1001 &2946229845014048862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9966,7 +10049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2946229845322120073, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
       propertyPath: m_Name
-      value: Unlocker
+      value: Unlocker_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21c434071d691834192cf22ccb8eb297, type: 3}

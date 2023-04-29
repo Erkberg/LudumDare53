@@ -11,12 +11,14 @@ namespace LD53
         public Hatch hatch;
         public PlayerBasket basket;
         public Egg egg;
+        public Unlocker unlocker;
         public CreatureEyes eyes;
         public Egg eggPrefab;        
         public int eggsProduced;        
 
         private float productionTimePassed;
         private float maxEggsProduced = 3;
+        private float moveSpeed = 2f;
 
         private void Update()
         {
@@ -31,6 +33,12 @@ namespace LD53
                 {
                     Timing.AddTimeAndCheckMax(ref productionTimePassed, Game.inst.progress.GetProductionTime(), Time.deltaTime, ProduceEgg);
                 }
+            }
+            else if(unlocker)
+            {
+                Vector3 dir = unlocker.entryPoint.creaturePosition.position - transform.position;
+                transform.position += dir.normalized * moveSpeed * Time.deltaTime;
+                transform.forward = -dir;
             }
         }
 
@@ -69,6 +77,18 @@ namespace LD53
                 hatch.ResetState();
                 hatch = null;
             }
+
+            if(unlocker)
+            {
+                unlocker = null;
+            }
+        }
+
+        public void Escape(Unlocker unlocker)
+        {
+            basket = null;
+            this.unlocker = unlocker;
+            transform.SetPositionY(0.33f);
         }
     }
 }

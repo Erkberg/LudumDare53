@@ -12,6 +12,30 @@ namespace LD53
 
         private List<Interactable> carriedInteractables = new List<Interactable>();
 
+        private void Update()
+        {
+            CheckCreatureEscape();
+        }
+
+        private void CheckCreatureEscape()
+        {
+            if (Random.value < 0.001f)
+            {
+                Creature creature = GetCarriedCreature();
+                if (creature)
+                {
+                    Unlocker unlocker = Game.inst.refs.GetActivatedUnfinishedUnlocker();
+                    if(unlocker)
+                    {
+                        GetCurrentSubBasket().RemoveInteractable(creature);
+                        carriedInteractables.Remove(creature);
+                        creature.transform.parent = null;
+                        creature.Escape(unlocker);
+                    }
+                }
+            }                
+        }
+
         public bool AddToCarriedInteractables(Interactable interactable)
         {
             if (carriedInteractables.Count < maxCarryAmount)

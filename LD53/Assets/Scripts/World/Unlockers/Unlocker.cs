@@ -13,14 +13,22 @@ namespace LD53
         public Transform noteDir;
         public List<UnlockerPanel> panels;
         public int score;
+        public bool finished;
 
         private bool isRunning;
         private float startTime;
         private int currentNote;
+        private bool active;
 
         public void SetActive()
         {
             entryPoint.Activate();
+            active = true;
+        }
+
+        public bool IsActive()
+        { 
+            return active;
         }
 
         public void StartGame()
@@ -47,10 +55,15 @@ namespace LD53
             if(currentNote >= track.notes.Count)
             {
                 // end song with delay
-                Debug.Log("end song");
                 isRunning = false;
                 currentNote = 0;                
                 Game.inst.refs.player.movement.movementEnabled = true;
+
+                if(score > 0)
+                {
+                    finished = true;
+                    entryPoint.Finish();
+                }
             }
             else
             {
