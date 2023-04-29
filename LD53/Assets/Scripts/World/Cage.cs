@@ -6,12 +6,13 @@ namespace LD53
 {
     public class Cage : Interactable
     {
-        public State state;
+        public Transform eggSpawnPosition;
+        public Creature creature;
 
-        public enum State
+        public void OnPutCreatureIntoCage(Creature creature)
         {
-            Empty,
-            Filled
+            this.creature = creature;
+            creature.cage = this;
         }
     }
 }

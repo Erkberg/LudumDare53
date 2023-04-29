@@ -6,6 +6,12 @@ namespace LD53
 {
     public class Interactable : MonoBehaviour
     {
-        public virtual void OnInteract() { }
+        public Collider coll;
+        public Transform targetPosition;
+
+        public void SetColliderEnabled(bool enabled)
+        {
+            coll.enabled = enabled;
+        }
     }
 }

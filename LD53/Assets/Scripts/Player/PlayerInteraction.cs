@@ -7,15 +7,15 @@ namespace LD53
     public class PlayerInteraction : MonoBehaviour
     {
         public PlayerController pc;
+        public PlayerBasket basket;
         public Transform camMuzzle;
-        public Animator crosshairAnimator;
+        public Animator crosshairAnimator;        
         public float range = 4f;
-        public int maxCarryAmount = 1;
 
         private Interactable focusedInteractable;
-        private List<Interactable> carriedInteractables = new List<Interactable>();
 
         private const string CrosshairHighlightedBool = "highlighted";
+        private const string CrosshairWrongTrigger = "wrong";
 
         private void Update()
         {
@@ -55,23 +55,53 @@ namespace LD53
 
         private void Interact()
         {
-            focusedInteractable.OnInteract();
+            bool success = false;
 
             if(focusedInteractable.GetType() == typeof(Cage))
             {
-
+                Cage cage = (Cage)focusedInteractable;
+                Creature carriedCreature = basket.GetCarriedCreature();
+                if (carriedCreature && !cage.creature)
+                {
+                    basket.RemoveFromCarriedInteractables(carriedCreature, focusedInteractable.targetPosition);
+                    cage.OnPutCreatureIntoCage(carriedCreature);
+                    success = true;
+                }
             }
             else if (focusedInteractable.GetType() == typeof(Creature))
             {
-
+                Creature creature = (Creature)focusedInteractable;
+                success = basket.AddToCarriedInteractables(focusedInteractable);
+                if(success)
+                {
+                    creature.OnTakeIntoBasket(basket);
+                }                
             }
             else if (focusedInteractable.GetType() == typeof(Egg))
             {
-
+                Egg egg = (Egg)focusedInteractable;    
+                success = basket.AddToCarriedInteractables(focusedInteractable);
+                if(success)
+                {
+                    egg.OnTakeIntoBasket(basket);
+                }
             }
             else if (focusedInteractable.GetType() == typeof(Hatch))
             {
+                Hatch hatch = (Hatch)focusedInteractable;
+                Egg carriedEgg = basket.GetCarriedEgg();
+                if(carriedEgg)
+                {
+                    basket.RemoveFromCarriedInteractables(carriedEgg, focusedInteractable.targetPosition);
+                    carriedEgg.OnPutIntoHatch(hatch);
+                    hatch.SetColliderEnabled(false);
+                    success = true;
+                }
+            }
 
+            if(!success)
+            {
+                crosshairAnimator.SetTrigger(CrosshairWrongTrigger);
             }
         }
     }

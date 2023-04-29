@@ -191,7 +191,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""id"": ""e137db2e-fc7d-474b-a503-6e6eceb64a0e"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": ""ScaleVector2"",
+                    ""processors"": ""ScaleVector2(x=0.67,y=0.67)"",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Look"",
                     ""isComposite"": false,

@@ -13,6 +13,8 @@ namespace LD53
         private void Awake()
         {
             inst = this;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }
