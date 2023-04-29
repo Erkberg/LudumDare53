@@ -37,7 +37,6 @@ namespace LD53
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("enter " + other.name);
             UnlockerNote note = other.GetComponent<UnlockerNote>();
             if(note)
             {

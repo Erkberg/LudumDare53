@@ -11,6 +11,7 @@ namespace LD53
         public UnlockerTrack track;
         public UnlockerNote notePrefab;
         public Transform noteDir;
+        public GameObject onFinish;
         public List<UnlockerPanel> panels;
         public int score;
         public bool finished;
@@ -62,6 +63,7 @@ namespace LD53
                 if(score > 0)
                 {
                     finished = true;
+                    onFinish.SetActive(true);
                     entryPoint.Finish();
                 }
             }

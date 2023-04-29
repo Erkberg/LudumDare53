@@ -60,7 +60,8 @@ namespace LD53
             vertRot -= input.GetLook().y * GetSensitivity();
             vertRot = Mathf.Clamp(vertRot, -maxVertAngle, maxVertAngle);
 
-            cam.localRotation = Quaternion.Slerp(cam.localRotation, Quaternion.Euler(vertRot, horRot, 0f), lookSpeed * Time.deltaTime);
+            //cam.localRotation = Quaternion.Slerp(cam.localRotation, Quaternion.Euler(vertRot, horRot, 0f), lookSpeed * Time.deltaTime);
+            cam.localRotation = Quaternion.Euler(vertRot, horRot, 0f);
         }
 
         public void LookAtTransform(Transform t)
