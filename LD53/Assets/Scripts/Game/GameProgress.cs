@@ -21,6 +21,14 @@ namespace LD53
             }
         }
 
+        public void CheatUnlockNextLevel()
+        {
+            if (currentLevel < levels.Count)
+            {
+                UnlockNextLevel();
+            }
+        }
+
         private void UnlockNextLevel()
         {
             foreach(Cage cage in Game.inst.refs.GetNextLockedCages(levels[currentLevel].unlockedCagesHatches))

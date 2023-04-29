@@ -62,6 +62,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CheatLevel"",
+                    ""type"": ""Button"",
+                    ""id"": ""bd612633-84eb-4511-8454-16f834c151bf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -284,6 +293,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Cheat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""295335cd-4dfb-49e9-9e09-9ba9151ef366"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CheatLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -307,6 +327,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Cheat = m_Player.FindAction("Cheat", throwIfNotFound: true);
+        m_Player_CheatLevel = m_Player.FindAction("CheatLevel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -372,6 +393,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Cheat;
+    private readonly InputAction m_Player_CheatLevel;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -380,6 +402,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Cheat => m_Wrapper.m_Player_Cheat;
+        public InputAction @CheatLevel => m_Wrapper.m_Player_CheatLevel;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -401,6 +424,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Cheat.started += instance.OnCheat;
             @Cheat.performed += instance.OnCheat;
             @Cheat.canceled += instance.OnCheat;
+            @CheatLevel.started += instance.OnCheatLevel;
+            @CheatLevel.performed += instance.OnCheatLevel;
+            @CheatLevel.canceled += instance.OnCheatLevel;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -417,6 +443,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Cheat.started -= instance.OnCheat;
             @Cheat.performed -= instance.OnCheat;
             @Cheat.canceled -= instance.OnCheat;
+            @CheatLevel.started -= instance.OnCheatLevel;
+            @CheatLevel.performed -= instance.OnCheatLevel;
+            @CheatLevel.canceled -= instance.OnCheatLevel;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -458,5 +487,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnCheat(InputAction.CallbackContext context);
+        void OnCheatLevel(InputAction.CallbackContext context);
     }
 }

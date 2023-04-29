@@ -6913,6 +6913,7 @@ GameObject:
   - component: {fileID: 1583517392}
   - component: {fileID: 1583517394}
   - component: {fileID: 1583517393}
+  - component: {fileID: 1583517395}
   m_Layer: 0
   m_Name: Debug
   m_TagString: EditorOnly
@@ -6958,6 +6959,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4054b41510e8e9741adb44be8fa01195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1583517395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583517391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9419bf79373577c46ae972e5d3e519f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1588854377
