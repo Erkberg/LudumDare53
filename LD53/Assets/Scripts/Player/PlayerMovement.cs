@@ -17,6 +17,7 @@ namespace LD53
         public float lookSpeed = 33f;
         public float lookSensitivity = 1f;
         public float maxVertAngle = 80f;
+        public float posY = 1f;
 
         private GameInput input;
         private float vertRot = 0f;
@@ -45,6 +46,7 @@ namespace LD53
             {
                 movement.y = 0f;
                 cc.Move(movement * Time.deltaTime);
+                transform.SetPositionY(posY);
             }
         }
 
