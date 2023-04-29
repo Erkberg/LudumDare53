@@ -11,6 +11,7 @@ namespace LD53
         public GameInput input;
         public GameProgress progress;
         public GameRefs refs;
+        public GameUI ui;
 
         private void Awake()
         {

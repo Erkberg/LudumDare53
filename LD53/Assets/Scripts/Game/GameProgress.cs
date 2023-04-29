@@ -37,6 +37,8 @@ namespace LD53
             {
                 Game.inst.refs.player.interaction.basket.maxCarryAmount++;
             }
+
+            Game.inst.ui.ShowStoryText(levels[currentLevel].textLine);
             // TODO: cam shake, text etc.
 
             currentLevel++;

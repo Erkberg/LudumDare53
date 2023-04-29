@@ -26,7 +26,7 @@ namespace LD53
                     cagesFinished++;
                 }
             }
-            Debug.Log(cagesFinished);
+
             return cagesFinished >= cagesToProgress;
         }
     }
