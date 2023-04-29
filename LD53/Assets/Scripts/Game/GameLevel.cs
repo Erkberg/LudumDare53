@@ -11,7 +11,7 @@ namespace LD53
         public int unlockedCagesHatches;
         public float productionTime = 6f;
         public float hatchTime = 8f;
-        public CageUnlocker cageUnlocker;
+        public Unlocker cageUnlocker;
         public bool increaseBasketSize;
         public string textLine;
 

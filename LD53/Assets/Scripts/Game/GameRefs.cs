@@ -10,6 +10,7 @@ namespace LD53
         public PlayerController player;
         public List<Cage> cages;
         public List<Hatch> hatches;
+        public List<Unlocker> unlockers;
 
         public List<Cage> GetNextLockedCages(int amount)
         {

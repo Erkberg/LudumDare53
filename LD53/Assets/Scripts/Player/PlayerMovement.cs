@@ -11,7 +11,7 @@ namespace LD53
         public PlayerController pc;
         public CharacterController cc;
         public Transform cam;
-        public Transform minimapCam;
+        public bool movementEnabled = true;
 
         public float moveSpeed = 4f;
         public float lookSpeed = 33f;
@@ -32,7 +32,11 @@ namespace LD53
         {
             if (pc.IsControllable())
             {
-                Move();
+                if(movementEnabled)
+                {
+                    Move();
+                }
+                
                 Look();
             }
         }
@@ -57,10 +61,6 @@ namespace LD53
             vertRot = Mathf.Clamp(vertRot, -maxVertAngle, maxVertAngle);
 
             cam.localRotation = Quaternion.Slerp(cam.localRotation, Quaternion.Euler(vertRot, horRot, 0f), lookSpeed * Time.deltaTime);
-            if (minimapCam)
-            {
-                minimapCam.localRotation = Quaternion.Slerp(minimapCam.localRotation, Quaternion.Euler(90f, horRot, 0f), lookSpeed * Time.deltaTime);
-            }
         }
 
         public void LookAtTransform(Transform t)
@@ -71,6 +71,11 @@ namespace LD53
         private float GetSensitivity()
         {
             return lookSensitivity;
+        }
+
+        public void SetPosition(Vector3 position)
+        {
+            transform.position = position;
         }
     }
 }

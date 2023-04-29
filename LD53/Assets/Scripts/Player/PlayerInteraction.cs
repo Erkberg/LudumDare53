@@ -99,8 +99,13 @@ namespace LD53
                     success = true;
                 }
             }
+            else if (focusedInteractable.GetType() == typeof(UnlockerPanel))
+            {
+                UnlockerPanel panel = (UnlockerPanel)focusedInteractable;
+                success = panel.OnInteraction();
+            }
 
-            if(!success)
+            if (!success)
             {
                 crosshairAnimator.SetTrigger(CrosshairWrongTrigger);
             }

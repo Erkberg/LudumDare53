@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LD53
 {
-    public class CageUnlocker : MonoBehaviour
+    public class UnlockerCrowd : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()
