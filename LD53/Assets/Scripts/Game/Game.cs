@@ -9,6 +9,8 @@ namespace LD53
         public static Game inst;
 
         public GameInput input;
+        public GameProgress progress;
+        public GameRefs refs;
 
         private void Awake()
         {

@@ -5,14 +5,13 @@ using UnityEngine;
 
 namespace LD53
 {
-    public class Hatch : Interactable
+    public class Hatch : UnlockableInteractable
     {
         public Egg egg;
         public Creature creature;
         public Creature creaturePrefab;
 
         private float hatchTimePassed;
-        private float hatchTime = 6f;
 
         private void Update()
         {
@@ -23,7 +22,7 @@ namespace LD53
         {
             if(egg)
             {
-                Timing.AddTimeAndCheckMax(ref hatchTimePassed, hatchTime, Time.deltaTime, HatchEgg);
+                Timing.AddTimeAndCheckMax(ref hatchTimePassed, Game.inst.progress.GetHatchTime(), Time.deltaTime, HatchEgg);
             }
         }
 

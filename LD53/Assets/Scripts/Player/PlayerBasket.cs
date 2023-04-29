@@ -8,6 +8,7 @@ namespace LD53
     public class PlayerBasket : MonoBehaviour
     {
         public int maxCarryAmount = 1;
+        public List<PlayerSubBasket> subBaskets;
 
         private List<Interactable> carriedInteractables = new List<Interactable>();
 
@@ -16,9 +17,15 @@ namespace LD53
             if (carriedInteractables.Count < maxCarryAmount)
             {
                 carriedInteractables.Add(interactable);
-                interactable.transform.parent = transform;
-                interactable.transform.localPosition = Vector3.zero;
-                return true;
+                PlayerSubBasketPosition subBasketPosition = GetCurrentSubBasket().GetNextFreePosition();
+                if(subBasketPosition)
+                {
+                    subBasketPosition.interactable = interactable;
+                    interactable.transform.parent = subBasketPosition.transform;
+                    interactable.transform.localPosition = Vector3.zero;
+                    return true;
+                }
+                return false;
             }
 
             return false;
@@ -28,6 +35,7 @@ namespace LD53
         {
             if (carriedInteractables.Contains(interactable))
             {
+                GetCurrentSubBasket().RemoveInteractable(interactable);
                 carriedInteractables.Remove(interactable);
                 interactable.transform.parent = targetTransform;
                 interactable.transform.localPosition = Vector3.zero;
@@ -46,6 +54,11 @@ namespace LD53
         public Egg GetCarriedEgg()
         {
             return carriedInteractables.Find(x => x.GetType() == typeof(Egg)) as Egg;
+        }
+
+        private PlayerSubBasket GetCurrentSubBasket()
+        {
+            return subBaskets[maxCarryAmount - 1];
         }
     }
 }

@@ -15,7 +15,6 @@ namespace LD53
         public Egg eggPrefab;        
         public int eggsProduced;        
 
-        private float productionTime = 4f;
         private float productionTimePassed;
         private float maxEggsProduced = 3;
 
@@ -30,7 +29,7 @@ namespace LD53
             {
                 if (!egg)
                 {
-                    Timing.AddTimeAndCheckMax(ref productionTimePassed, productionTime, Time.deltaTime, ProduceEgg);
+                    Timing.AddTimeAndCheckMax(ref productionTimePassed, Game.inst.progress.GetProductionTime(), Time.deltaTime, ProduceEgg);
                 }
             }
         }
@@ -38,18 +37,21 @@ namespace LD53
         private void ProduceEgg()
         {
             eggsProduced++;
-            Egg egg = Instantiate(eggPrefab, cage.eggSpawnPosition);
-            egg.transform.localPosition = Vector3.zero;
-            egg.transform.localRotation = Quaternion.identity;
-            egg.creature = this;
-            this.egg = egg;
-            eyes.SetEyesScale(1f - eggsProduced / maxEggsProduced);
 
-            if(eggsProduced >= maxEggsProduced)
+            if (eggsProduced >= maxEggsProduced)
             {
-                egg.creature = null;
+                //egg.creature = null;
                 cage.creature = null;
                 Destroy(gameObject);
+            }
+            else
+            {
+                Egg egg = Instantiate(eggPrefab, cage.eggSpawnPosition);
+                egg.transform.localPosition = Vector3.zero;
+                egg.transform.localRotation = Quaternion.identity;
+                egg.creature = this;
+                this.egg = egg;
+                eyes.SetEyesScale(1f - eggsProduced / maxEggsProduced);
             }
         }
 

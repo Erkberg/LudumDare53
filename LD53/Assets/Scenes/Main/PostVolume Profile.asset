@@ -85,7 +85,7 @@ MonoBehaviour:
     m_Value: 1
   focusDistanceMode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   nearFocusStart:
     m_OverrideState: 1
     m_Value: 0

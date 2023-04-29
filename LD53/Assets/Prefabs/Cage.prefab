@@ -198,7 +198,9 @@ MonoBehaviour:
   coll: {fileID: 6256210150776154481}
   targetPosition: {fileID: 6256210150059806579}
   eggSpawnPosition: {fileID: 6256210151570545854}
+  animator: {fileID: 0}
   creature: {fileID: 0}
+  unlocked: 0
 --- !u!65 &6256210150776154481
 BoxCollider:
   m_ObjectHideFlags: 0

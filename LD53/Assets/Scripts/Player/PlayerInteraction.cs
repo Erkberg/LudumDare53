@@ -66,6 +66,7 @@ namespace LD53
                     basket.RemoveFromCarriedInteractables(carriedCreature, focusedInteractable.targetPosition);
                     cage.OnPutCreatureIntoCage(carriedCreature);
                     success = true;
+                    Game.inst.progress.CheckNextLevel();
                 }
             }
             else if (focusedInteractable.GetType() == typeof(Creature))

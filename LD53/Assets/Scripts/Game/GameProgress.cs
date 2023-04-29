@@ -6,16 +6,50 @@ namespace LD53
 {
     public class GameProgress : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        public List<GameLevel> levels;
+        public int initiallyUnlocked = 3;
+        public int currentLevel = 0;
+
+        public void CheckNextLevel()
         {
-        
+            if (levels[currentLevel].IsFinished())
+            {
+                if(currentLevel < levels.Count)
+                {
+                    UnlockNextLevel();
+                }                
+            }
         }
 
-        // Update is called once per frame
-        void Update()
+        private void UnlockNextLevel()
         {
-        
+            foreach(Cage cage in Game.inst.refs.GetNextLockedCages(levels[currentLevel].unlockedCagesHatches))
+            {
+                cage.Unlock();
+            }
+
+            foreach (Hatch hatch in Game.inst.refs.GetNextLockedHatches(levels[currentLevel].unlockedCagesHatches))
+            {
+                hatch.Unlock();
+            }
+
+            if(levels[currentLevel].increaseBasketSize)
+            {
+                Game.inst.refs.player.interaction.basket.maxCarryAmount++;
+            }
+            // TODO: cam shake, text etc.
+
+            currentLevel++;
+        }
+
+        public float GetProductionTime()
+        {
+            return levels[currentLevel].productionTime;
+        }
+
+        public float GetHatchTime()
+        {
+            return levels[currentLevel].hatchTime;
         }
     }
 }
