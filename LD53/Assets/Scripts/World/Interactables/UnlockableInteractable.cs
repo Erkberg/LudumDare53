@@ -19,6 +19,8 @@ namespace LD53
 
         public IEnumerator UnlockSequence()
         {
+            unlocked = true;
+
             while (transform.position.y < unlockedPosY)
             {
                 transform.position += Vector3.up * unlockSpeed * Time.deltaTime;

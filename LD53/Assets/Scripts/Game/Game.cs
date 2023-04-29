@@ -12,6 +12,7 @@ namespace LD53
         public GameProgress progress;
         public GameRefs refs;
         public GameUI ui;
+        public GameTexts texts;
 
         private void Awake()
         {

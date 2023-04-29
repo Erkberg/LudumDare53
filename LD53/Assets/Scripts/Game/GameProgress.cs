@@ -47,7 +47,8 @@ namespace LD53
             }
 
             Game.inst.ui.ShowStoryText(levels[currentLevel].textLine);
-            // TODO: cam shake, text etc.
+            levels[currentLevel].cageUnlocker?.SetActive();
+            // TODO: cam shake
 
             currentLevel++;
         }

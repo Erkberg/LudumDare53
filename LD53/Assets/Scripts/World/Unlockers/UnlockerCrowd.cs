@@ -6,16 +6,7 @@ namespace LD53
 {
     public class UnlockerCrowd : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        public List<UnlockerCrowdPerson> crowdPersons;
+        public UnlockerCrowdButton button;
     }
 }

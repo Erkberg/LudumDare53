@@ -9,6 +9,7 @@ namespace LD53
     {
         public Transform eggSpawnPosition;
         public Creature creature;
+        public List<CageBars> cageBars;
 
         public void OnPutCreatureIntoCage(Creature creature)
         {

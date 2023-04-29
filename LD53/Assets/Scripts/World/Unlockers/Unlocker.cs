@@ -18,6 +18,11 @@ namespace LD53
         private float startTime;
         private int currentNote;
 
+        public void SetActive()
+        {
+            entryPoint.Activate();
+        }
+
         public void StartGame()
         {
             Game.inst.refs.player.movement.SetPosition(entryPoint.playerPosition.position);
