@@ -14,7 +14,7 @@ namespace LD53
         {
             if (levels[currentLevel].IsFinished())
             {
-                if(currentLevel < levels.Count)
+                if(currentLevel + 1 < levels.Count)
                 {
                     UnlockNextLevel();
                 }                
@@ -23,7 +23,7 @@ namespace LD53
 
         public void CheatUnlockNextLevel()
         {
-            if (currentLevel < levels.Count)
+            if (currentLevel + 1 < levels.Count)
             {
                 UnlockNextLevel();
             }

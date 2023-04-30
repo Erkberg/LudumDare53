@@ -60,5 +60,20 @@ namespace LD53
 
             return null;
         }
+
+        public int GetActivatedUnlockerAmount()
+        {
+            int amount = 0;
+
+            foreach (Unlocker unlocker in unlockers)
+            {
+                if (unlocker.IsActive())
+                {
+                    amount++;
+                }
+            }
+
+            return amount;
+        }
     }
 }

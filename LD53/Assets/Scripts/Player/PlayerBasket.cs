@@ -19,7 +19,7 @@ namespace LD53
 
         private void CheckCreatureEscape()
         {
-            if (Random.value < 0.001f)
+            if (Random.value < 0.001f && Game.inst.refs.GetActivatedUnlockerAmount() > 1)
             {
                 Creature creature = GetCarriedCreature();
                 if (creature)
