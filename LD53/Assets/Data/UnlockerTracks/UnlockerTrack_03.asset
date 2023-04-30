@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567ac92f426836a499628078b5010e1b, type: 3}
   m_Name: UnlockerTrack_03
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 851f9cf7a36032741b34660ad362fb8e, type: 3}
+  music: {fileID: 8300000, guid: 269aeaf26de484143b8d5c206008b74b, type: 3}
   notes:
   - type: 1
     time: 0
@@ -52,4 +52,52 @@ MonoBehaviour:
     time: 7.25
   - type: 0
     time: 7.75
+  - type: 1
+    time: 8
+  - type: 2
+    time: 8.5
+  - type: 0
+    time: 8.75
+  - type: 1
+    time: 9
+  - type: 2
+    time: 9.5
+  - type: 0
+    time: 9.75
+  - type: 1
+    time: 10
+  - type: 2
+    time: 10.5
+  - type: 0
+    time: 10.75
+  - type: 1
+    time: 11
+  - type: 2
+    time: 11.5
+  - type: 0
+    time: 11.75
+  - type: 1
+    time: 12
+  - type: 0
+    time: 12.25
+  - type: 1
+    time: 12.5
+  - type: 0
+    time: 12.75
+  - type: 2
+    time: 13
+  - type: 0
+    time: 13.75
+  - type: 1
+    time: 14
+  - type: 0
+    time: 14.25
+  - type: 1
+    time: 14.5
+  - type: 0
+    time: 14.75
+  - type: 2
+    time: 15
+  - type: 2
+    time: 15.5
   speed: 0.875

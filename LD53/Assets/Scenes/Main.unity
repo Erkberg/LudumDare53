@@ -3766,7 +3766,7 @@ PrefabInstance:
     - target: {fileID: 2946229845322120071, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
       propertyPath: track
       value: 
-      objectReference: {fileID: 11400000, guid: 633beaab420dbbf4b973718d5ecdde4f, type: 2}
+      objectReference: {fileID: 11400000, guid: 9247f7b4105dc8b46ad86933e169fbfd, type: 2}
     - target: {fileID: 2946229845322120071, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
       propertyPath: onFinish
       value: 
@@ -11801,7 +11801,7 @@ PrefabInstance:
     - target: {fileID: 2946229845322120071, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
       propertyPath: track
       value: 
-      objectReference: {fileID: 11400000, guid: 56ef22213c7a7c74d9c14ea13cf9c7b7, type: 2}
+      objectReference: {fileID: 11400000, guid: 0d37f33c748969e47a207d4e501d2746, type: 2}
     - target: {fileID: 2946229845322120071, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
       propertyPath: onFinish
       value: 
