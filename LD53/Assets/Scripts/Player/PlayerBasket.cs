@@ -8,6 +8,7 @@ namespace LD53
     {
         public int maxCarryAmount = 1;
         public List<PlayerSubBasket> subBaskets;
+        public AudioClip escapeClip;
 
         private List<Interactable> carriedInteractables = new List<Interactable>();
 
@@ -27,6 +28,7 @@ namespace LD53
                     if(unlocker)
                     {
                         GetCurrentSubBasket().RemoveInteractable(creature);
+                        Game.inst.audio.PlaySound(escapeClip);
                         carriedInteractables.Remove(creature);
                         creature.transform.parent = null;
                         creature.Escape(unlocker);

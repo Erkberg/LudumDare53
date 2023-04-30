@@ -10,6 +10,7 @@ namespace LD53
         public Transform eggSpawnPosition;
         public Creature creature;
         public List<CageBars> cageBars;
+        public AudioSource asEgg;
 
         public void OnPutCreatureIntoCage(Creature creature)
         {
@@ -20,6 +21,11 @@ namespace LD53
         public void OnUnlockerFinished(int id)
         {
             cageBars[id].RemoveBars();
+        }
+
+        public void OnEggProduced()
+        {
+            asEgg.Play();
         }
     }
 }

@@ -1248,6 +1248,7 @@ MonoBehaviour:
     textLine: Repeat.
   initiallyUnlocked: 3
   currentLevel: 0
+  levelClip: {fileID: 8300000, guid: 688ae2e2893e48749815b44e5a2b89a4, type: 3}
 --- !u!4 &183013951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6256210150776154383, guid: d384cfcd19ca6694984d36f545d43dab, type: 3}
@@ -9934,6 +9935,9 @@ MonoBehaviour:
   camMuzzle: {fileID: 881070143}
   crosshairAnimator: {fileID: 1716678260}
   range: 1.67
+  wrongClip: {fileID: 8300000, guid: 968dd9aa5fbddbf4db1316858ba2fe3a, type: 3}
+  takeClip: {fileID: 8300000, guid: a04dbfd81b8127c46bd2c55974e4bfaf, type: 3}
+  putClip: {fileID: 8300000, guid: f3cdcff43f63b6f438829135419a4d36, type: 3}
 --- !u!4 &1748930821
 Transform:
   m_ObjectHideFlags: 0
@@ -11164,6 +11168,7 @@ MonoBehaviour:
   - {fileID: 1011560433}
   - {fileID: 448244121}
   - {fileID: 1774275208}
+  escapeClip: {fileID: 8300000, guid: 8e21d930aaf349f4b939c4d13aa972d4, type: 3}
 --- !u!1 &2088245075
 GameObject:
   m_ObjectHideFlags: 0
@@ -11888,6 +11893,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1983269361}
     m_Modifications:
+    - target: {fileID: 5555025322335462329, guid: d384cfcd19ca6694984d36f545d43dab, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6256210150776154382, guid: d384cfcd19ca6694984d36f545d43dab, type: 3}
       propertyPath: m_Name
       value: CageCenter_01

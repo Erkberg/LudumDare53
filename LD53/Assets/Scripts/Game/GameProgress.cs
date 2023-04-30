@@ -9,6 +9,7 @@ namespace LD53
         public List<GameLevel> levels;
         public int initiallyUnlocked = 3;
         public int currentLevel = 0;
+        public AudioClip levelClip;
 
         public void CheckNextLevel()
         {
@@ -60,6 +61,7 @@ namespace LD53
 
             Game.inst.ui.ShowStoryText(levels[currentLevel].textLine);
             levels[currentLevel].cageUnlocker?.SetActive();
+            Game.inst.audio.PlaySound(levelClip);
             // TODO: cam shake
 
             currentLevel++;

@@ -60,6 +60,7 @@ namespace LD53
                 egg.transform.localRotation = Quaternion.identity;
                 egg.creature = this;
                 this.egg = egg;
+                cage.OnEggProduced();
                 eyes.SetEyesScale(1f - eggsProduced / maxEggsProduced);
                 Game.inst.stats.OnEggProduced();
             }

@@ -12,6 +12,11 @@ namespace LD53
         public Animator crosshairAnimator;        
         public float range = 4f;
 
+        [Header("Sounds")]
+        public AudioClip wrongClip;
+        public AudioClip takeClip;
+        public AudioClip putClip;
+
         private Interactable focusedInteractable;
 
         private const string CrosshairHighlightedBool = "highlighted";
@@ -64,8 +69,9 @@ namespace LD53
                 if (carriedCreature && !cage.creature)
                 {
                     basket.RemoveFromCarriedInteractables(carriedCreature, focusedInteractable.targetPosition);
-                    cage.OnPutCreatureIntoCage(carriedCreature);
+                    cage.OnPutCreatureIntoCage(carriedCreature);                    
                     success = true;
+                    Game.inst.audio.PlaySoundRandomVolumePitch(putClip, 0.5f);
                     Game.inst.progress.CheckNextLevel();
                     Game.inst.stats.OnCreatureDelivered();
                 }
@@ -77,6 +83,7 @@ namespace LD53
                 if(success)
                 {
                     creature.OnTakeIntoBasket(basket);
+                    Game.inst.audio.PlaySoundRandomVolumePitch(takeClip, 0.33f);
                     Game.inst.stats.OnCreaturePickedUp();
                 }                
             }
@@ -87,6 +94,7 @@ namespace LD53
                 if(success)
                 {
                     egg.OnTakeIntoBasket(basket);
+                    Game.inst.audio.PlaySoundRandomVolumePitch(takeClip, 0.33f);
                     Game.inst.stats.OnEggPickedUp();
                 }
             }
@@ -100,6 +108,7 @@ namespace LD53
                     carriedEgg.OnPutIntoHatch(hatch);
                     hatch.SetColliderEnabled(false);
                     success = true;
+                    Game.inst.audio.PlaySoundRandomVolumePitch(putClip, 0.5f);
                     Game.inst.stats.OnEggDeliverd();
                 }
             }
@@ -111,6 +120,7 @@ namespace LD53
 
             if (!success)
             {
+                Game.inst.audio.PlaySoundRandomVolumePitch(wrongClip);
                 crosshairAnimator.SetTrigger(CrosshairWrongTrigger);
             }
         }

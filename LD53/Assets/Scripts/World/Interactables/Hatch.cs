@@ -10,6 +10,7 @@ namespace LD53
         public Egg egg;
         public Creature creature;
         public Creature creaturePrefab;
+        public AudioSource asHatch;
 
         private float hatchTimePassed;
 
@@ -31,6 +32,7 @@ namespace LD53
             Destroy(egg.gameObject);
             egg = null;
 
+            asHatch.Play();
             Creature creature = Instantiate(creaturePrefab, targetPosition);
             creature.transform.localPosition = Vector3.zero;
             creature.transform.localRotation = Quaternion.identity;
