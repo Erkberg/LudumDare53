@@ -408,12 +408,16 @@ MonoBehaviour:
   - Whyyy???
   - Better luck next time!
   - Urgh!
+  - What am I even doing here?
   finishLines:
   - You really delivered!
   - Sick delivery!
   - Consider me a fan!
   - You're the best!
-  - You're the best!
+  - We'll end this misery!
+  - I'm positively shocked!
+  - Less cages, more party!
+  - Freedom!
 --- !u!1 &2881107210867550060
 GameObject:
   m_ObjectHideFlags: 0
