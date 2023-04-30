@@ -347,12 +347,13 @@ MonoBehaviour:
   coll: {fileID: 6256210150776154481}
   targetPosition: {fileID: 6256210150059806579}
   unlocked: 0
+  unlockedPosY: 0
   eggSpawnPosition: {fileID: 6256210151570545854}
   creature: {fileID: 0}
   cageBars:
-  - {fileID: 7920703918042141442}
   - {fileID: 1991411164221018139}
   - {fileID: 3990927257887212736}
+  - {fileID: 7920703918042141442}
 --- !u!65 &6256210150776154481
 BoxCollider:
   m_ObjectHideFlags: 0

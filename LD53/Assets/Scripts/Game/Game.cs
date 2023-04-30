@@ -20,5 +20,17 @@ namespace LD53
         {
             inst = this;            
         }
+
+        public void TriggerEnding()
+        {
+            StartCoroutine(EndingSequence());
+        }
+
+        private IEnumerator EndingSequence()
+        {
+            yield return null;
+            ui.menu.SetState(Menu.State.End);
+            ui.menu.Open();
+        }
     }
 }

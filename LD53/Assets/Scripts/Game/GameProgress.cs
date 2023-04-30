@@ -27,6 +27,17 @@ namespace LD53
             {
                 UnlockNextLevel();
             }
+            else
+            {
+                foreach(Unlocker unlocker in Game.inst.refs.unlockers)
+                {
+                    if(!unlocker.finished)
+                    {
+                        unlocker.Finish();
+                        break;
+                    }
+                }
+            }
         }
 
         private void UnlockNextLevel()

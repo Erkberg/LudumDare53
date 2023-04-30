@@ -2130,6 +2130,7 @@ MonoBehaviour:
   creaturesPickedUp: 0
   creaturesDelivered: 0
   creaturesDied: 0
+  unlockersFinished: 0
 --- !u!1001 &446605766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3753,6 +3754,10 @@ PrefabInstance:
     - target: {fileID: 2946229845322120070, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120071, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: id
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2946229845322120071, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
       propertyPath: track
@@ -8518,13 +8523,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2946229845322120071, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
+      propertyPath: id
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946229845322120071, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
       propertyPath: track
       value: 
       objectReference: {fileID: 11400000, guid: 395811970fc7e91478d36585b6947803, type: 2}
     - target: {fileID: 2946229845322120071, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
       propertyPath: onFinish
       value: 
-      objectReference: {fileID: 2088245075}
+      objectReference: {fileID: 550348798}
     - target: {fileID: 2946229845322120071, guid: 21c434071d691834192cf22ccb8eb297, type: 3}
       propertyPath: noteRot.y
       value: 180
@@ -11342,6 +11351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ca67b42f9799c40976234c033afd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu: {fileID: 8561642695306455406}
   storyText: {fileID: 42584390}
   storyTextDuration: 6.67
 --- !u!1 &2125150748
@@ -13125,6 +13135,8 @@ MonoBehaviour:
   state: 0
   holder: {fileID: 8561642694575991335}
   startContinueRestartButtonText: {fileID: 8561642694377314119}
+  subtitle: {fileID: 8561642693550182198}
+  tutorialStatsText: {fileID: 8561642694773230511}
   quitButton: {fileID: 8561642693895700505}
   openOnStart: 1
   pauseTimeWhileOpen: 1
@@ -13132,3 +13144,4 @@ MonoBehaviour:
   startText: Start
   continueText: Continue
   restartText: Restart
+  endingText: Thank you so much for playing! <3

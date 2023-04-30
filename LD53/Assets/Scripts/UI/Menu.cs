@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LD53
 {
     public class Menu : MonoBehaviour
     {
+        public static bool justRestarted;
+
         [Header("State")]
         public State state;
 
         [Header("Refs")]
         public GameObject holder;
         public TextMeshProUGUI startContinueRestartButtonText;
+        public TextMeshProUGUI subtitle;
+        public TextMeshProUGUI tutorialStatsText;
         public GameObject quitButton;
 
         [Header("Config")]
@@ -23,6 +28,7 @@ namespace LD53
         public string startText = "Start";
         public string continueText = "Continue";
         public string restartText = "Restart";
+        public string endingText = "Thank you so much for playing! <3";
 
         public enum State
         {
@@ -33,7 +39,13 @@ namespace LD53
 
         private void Start()
         {
-            if (openOnStart)
+            if(justRestarted)
+            {
+                Close();
+                justRestarted = false;
+                state = State.Pause;
+            }
+            else if (openOnStart)
             {
                 Open();
             }
@@ -78,7 +90,7 @@ namespace LD53
 
         public void Open()
         {
-            AdjustButtonsToState();
+            AdjustToState();
             holder.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -103,7 +115,7 @@ namespace LD53
             }
         }
 
-        private void AdjustButtonsToState()
+        private void AdjustToState()
         {
             switch (state)
             {
@@ -117,6 +129,8 @@ namespace LD53
 
                 case State.End:
                     startContinueRestartButtonText.text = restartText;
+                    subtitle.text = endingText;
+                    tutorialStatsText.text = GetStatsText();
                     break;
             }
         }
@@ -136,6 +150,8 @@ namespace LD53
                     break;
 
                 case State.End:
+                    justRestarted = true;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                     break;
             }
         }
@@ -148,6 +164,17 @@ namespace LD53
         public void OnQuitButtonClicked()
         {
             Application.Quit();
+        }
+
+        private string GetStatsText()
+        {
+            string s = string.Empty;
+
+            s += $"Eggs produced: {Game.inst.stats.eggsProduced}\n";
+            s += $"Creatures hatched: {Game.inst.stats.creaturesHatched}\n";
+            s += $"Creatures died: {Game.inst.stats.creaturesDied}\n";
+
+            return s;
         }
     }
 }

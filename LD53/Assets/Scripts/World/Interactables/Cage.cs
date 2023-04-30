@@ -16,5 +16,10 @@ namespace LD53
             this.creature = creature;
             creature.cage = this;
         }
+
+        public void OnUnlockerFinished(int id)
+        {
+            cageBars[id].RemoveBars();
+        }
     }
 }

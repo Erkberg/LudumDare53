@@ -68,9 +68,7 @@ namespace LD53
 
                 if(score > 0)
                 {
-                    finished = true;
-                    onFinish.SetActive(true);
-                    entryPoint.Finish();
+                    Finish();
                 }
             }
             else
@@ -81,6 +79,15 @@ namespace LD53
                     SpawnNextNote(nextNote);
                 }
             }            
+        }
+
+        public void Finish()
+        {
+            Debug.Log($"finish unlocker {id}");
+            finished = true;
+            onFinish.SetActive(true);
+            entryPoint.Finish();
+            Game.inst.stats.OnUnlockerFinished();
         }
 
         private void SpawnNextNote(UnlockerNoteData noteData)

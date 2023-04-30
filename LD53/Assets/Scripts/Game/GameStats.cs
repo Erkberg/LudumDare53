@@ -13,6 +13,7 @@ namespace LD53
         public int creaturesPickedUp;
         public int creaturesDelivered;
         public int creaturesDied;
+        public int unlockersFinished;
 
         public void OnEggProduced()
         {
@@ -72,6 +73,20 @@ namespace LD53
         public void OnCreatureDied()
         {
             creaturesDied++;
+        }
+
+        public void OnUnlockerFinished()
+        {
+            foreach(Cage cage in Game.inst.refs.cages)
+            {
+                cage.OnUnlockerFinished(unlockersFinished);
+            }
+
+            unlockersFinished++;
+            if(unlockersFinished >= Game.inst.refs.unlockers.Count)
+            {
+                Game.inst.TriggerEnding();
+            }
         }
     }
 }

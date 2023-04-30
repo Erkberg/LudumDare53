@@ -7,6 +7,7 @@ namespace LD53
 {
     public class GameUI : MonoBehaviour
     {
+        public Menu menu;
         public TextMeshProUGUI storyText;
         public float storyTextDuration = 6.67f;
 
