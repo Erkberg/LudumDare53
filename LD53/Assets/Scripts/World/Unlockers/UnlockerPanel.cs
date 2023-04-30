@@ -9,19 +9,29 @@ namespace LD53
         public Unlocker unlocker;
         public int id;
         public Transform notesHolder;
+        public Animator animator;
 
         private UnlockerNote currentNote;
         private bool justHit;
+
+        private const string WrongNoteTrigger = "wrong";
+        private const string RightNoteTrigger = "right";
 
         private void Update()
         {
             justHit = false;
         }
 
+        public void Activate()
+        {
+            animator.gameObject.SetActive(true);
+        }
+
         public bool OnInteraction()
         {
             if(currentNote)
             {
+                animator.SetTrigger(RightNoteTrigger);
                 unlocker.OnHitNote();
                 currentNote.Dissolve();
                 currentNote = null;
@@ -30,6 +40,7 @@ namespace LD53
             }
             else
             {
+                animator.SetTrigger(WrongNoteTrigger);
                 unlocker.OnMissNote();
                 return false;
             }

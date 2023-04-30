@@ -16,6 +16,7 @@ namespace LD53
         public List<UnlockerPanel> panels;
         public int score;
         public bool finished;
+        public Vector3 noteRot;
 
         private bool isRunning;
         private float startTime;
@@ -25,6 +26,10 @@ namespace LD53
         public void SetActive()
         {
             entryPoint.Activate();
+            foreach(UnlockerPanel panel in panels)
+            {
+                panel.Activate();
+            }
             active = true;
         }
 
@@ -85,6 +90,7 @@ namespace LD53
             note.transform.position = panel.targetPosition.position - noteDir.forward * 2;
             note.moveDir = noteDir.forward;
             note.speed = track.speed;
+            note.transform.localEulerAngles = noteRot;
 
             currentNote++;
         }

@@ -6,6 +6,7 @@ namespace LD53
 {
     public class GameTexts : MonoBehaviour
     {
+        [TextArea]
         public string stayInsideText;
 
         [Header("Tutorials")]
