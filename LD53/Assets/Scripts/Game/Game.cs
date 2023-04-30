@@ -13,12 +13,12 @@ namespace LD53
         public GameRefs refs;
         public GameUI ui;
         public GameTexts texts;
+        public GameStats stats;
+        public GameTutorial tutorial;
 
         private void Awake()
         {
-            inst = this;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            inst = this;            
         }
     }
 }

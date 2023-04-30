@@ -7,5 +7,13 @@ namespace LD53
     public class GameTexts : MonoBehaviour
     {
         public string stayInsideText;
+
+        [Header("Tutorials")]
+        public string eggPickupTutorialText;
+        public string eggDeliverTutorialText;
+        public string hatchWaitTutorialText;
+        public string creaturePickupTutorialText;
+        public string creatureDeliverTutorialText;
+        public string repeatTutorialText;
     }
 }

@@ -39,6 +39,11 @@ namespace LD53
             return controls.Player.Interact.WasReleasedThisFrame();
         }
 
+        public bool GetMenuButtonDown()
+        {
+            return controls.Player.Menu.WasPressedThisFrame();
+        }
+
         public bool GetCheatLevelButtonDown()
         {
             return controls.Player.CheatLevel.WasPressedThisFrame();

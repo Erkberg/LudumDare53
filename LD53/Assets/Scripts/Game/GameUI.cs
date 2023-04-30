@@ -10,11 +10,15 @@ namespace LD53
         public TextMeshProUGUI storyText;
         public float storyTextDuration = 6.67f;
 
-        public void ShowStoryText(string text)
+        public void ShowStoryText(string text, bool disappearAfter = true)
         {
             storyText.text = text;
             StopAllCoroutines();
-            StartCoroutine(ShowStoryTextSequence());
+
+            if (disappearAfter )
+            {
+                StartCoroutine(ShowStoryTextSequence());
+            }
         }
 
         public void HideStoryText()

@@ -17,7 +17,7 @@ namespace LD53
         public int eggsProduced;        
 
         private float productionTimePassed;
-        private float maxEggsProduced = 3;
+        private float maxEggsProduced = 4;
         private float moveSpeed = 2f;
 
         private void Update()
@@ -50,6 +50,7 @@ namespace LD53
             {
                 //egg.creature = null;
                 cage.creature = null;
+                Game.inst.stats.OnCreatureDied();
                 Destroy(gameObject);
             }
             else
@@ -60,6 +61,7 @@ namespace LD53
                 egg.creature = this;
                 this.egg = egg;
                 eyes.SetEyesScale(1f - eggsProduced / maxEggsProduced);
+                Game.inst.stats.OnEggProduced();
             }
         }
 

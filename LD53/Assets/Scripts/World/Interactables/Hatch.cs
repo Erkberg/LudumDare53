@@ -36,6 +36,7 @@ namespace LD53
             creature.transform.localRotation = Quaternion.identity;
             creature.hatch = this;
             this.creature = creature;
+            Game.inst.stats.OnCreatureHatched();
         }
 
         public void ResetState()

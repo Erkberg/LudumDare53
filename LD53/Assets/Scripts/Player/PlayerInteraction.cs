@@ -67,6 +67,7 @@ namespace LD53
                     cage.OnPutCreatureIntoCage(carriedCreature);
                     success = true;
                     Game.inst.progress.CheckNextLevel();
+                    Game.inst.stats.OnCreatureDelivered();
                 }
             }
             else if (focusedInteractable.GetType() == typeof(Creature))
@@ -76,6 +77,7 @@ namespace LD53
                 if(success)
                 {
                     creature.OnTakeIntoBasket(basket);
+                    Game.inst.stats.OnCreaturePickedUp();
                 }                
             }
             else if (focusedInteractable.GetType() == typeof(Egg))
@@ -85,6 +87,7 @@ namespace LD53
                 if(success)
                 {
                     egg.OnTakeIntoBasket(basket);
+                    Game.inst.stats.OnEggPickedUp();
                 }
             }
             else if (focusedInteractable.GetType() == typeof(Hatch))
@@ -97,6 +100,7 @@ namespace LD53
                     carriedEgg.OnPutIntoHatch(hatch);
                     hatch.SetColliderEnabled(false);
                     success = true;
+                    Game.inst.stats.OnEggDeliverd();
                 }
             }
             else if (focusedInteractable.GetType() == typeof(UnlockerPanel))
