@@ -44,6 +44,7 @@ namespace LD53
             if(levels[currentLevel].increaseBasketSize)
             {
                 Game.inst.refs.player.interaction.basket.maxCarryAmount++;
+                Game.inst.refs.player.movement.moveSpeed += 0.5f;
             }
 
             Game.inst.ui.ShowStoryText(levels[currentLevel].textLine);

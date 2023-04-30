@@ -10,6 +10,7 @@ namespace LD53
         public UnlockerEntryPoint entryPoint;
         public UnlockerTrack track;
         public UnlockerNote notePrefab;
+        public UnlockerCrowd crowd;
         public Transform noteDir;
         public GameObject onFinish;
         public List<UnlockerPanel> panels;

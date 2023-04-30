@@ -8,8 +8,8 @@ namespace LD53
     public class UnlockableInteractable : Interactable
     {
         public bool unlocked;
+        public float unlockedPosY = 0f;
 
-        private float unlockedPosY = 0f;
         private float unlockSpeed = 1f;
 
         public void Unlock()
