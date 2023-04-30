@@ -45,6 +45,7 @@ namespace LD53
             Game.inst.refs.player.movement.movementEnabled = false;
 
             Game.inst.audio.PlayMusic(track.music);
+            crowd.gameObject.SetActive(true);
 
             score = 0;
             currentNote = 0;
@@ -88,12 +89,13 @@ namespace LD53
         }
 
         private IEnumerator EndSequence()
-        {
-            yield return new WaitForSeconds(3f);
+        {            
+            yield return new WaitForSeconds(3f);            
             isRunning = false;    
 
             if (score > scoreTreshold)
             {
+                crowd.OnFinish();
                 Game.inst.refs.unlockerCam.SetActive(true);
                 yield return new WaitForSeconds(1f);
                 Finish();
@@ -109,6 +111,12 @@ namespace LD53
                     Game.inst.refs.player.movement.movementEnabled = true;
                     Game.inst.refs.unlockerCam.SetActive(false);
                 }
+            }
+            else
+            {
+                Game.inst.refs.player.movement.movementEnabled = true;
+                Game.inst.audio.PlayMusic(Game.inst.refs.music);
+                crowd.gameObject.SetActive(false);
             }
         }
 
@@ -145,11 +153,13 @@ namespace LD53
 
         public void OnHitNote()
         {
+            crowd.OnHit();
             score++;
         }
 
         public void OnMissNote()
         {
+            crowd.OnMiss();
             score--;
         }
     }
