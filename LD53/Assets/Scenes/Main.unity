@@ -1225,14 +1225,14 @@ MonoBehaviour:
     cageUnlocker: {fileID: 396577753}
     increaseBasketSize: 1
     textLine: We're satisfied. You got promoted.
-  - cagesToProgress: 10
+  - cagesToProgress: 9
     unlockedCagesHatches: 11
     productionTime: 6
     hatchTime: 8
     cageUnlocker: {fileID: 719922412}
     increaseBasketSize: 1
     textLine: Doing great, here's another promotion.
-  - cagesToProgress: 20
+  - cagesToProgress: 17
     unlockedCagesHatches: 22
     productionTime: 6
     hatchTime: 8
@@ -11952,6 +11952,22 @@ PrefabInstance:
     - target: {fileID: 6256210150776154480, guid: d384cfcd19ca6694984d36f545d43dab, type: 3}
       propertyPath: unlocked
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256210151570545854, guid: d384cfcd19ca6694984d36f545d43dab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256210151570545854, guid: d384cfcd19ca6694984d36f545d43dab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256210151570545854, guid: d384cfcd19ca6694984d36f545d43dab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642163271133651902, guid: d384cfcd19ca6694984d36f545d43dab, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d384cfcd19ca6694984d36f545d43dab, type: 3}
