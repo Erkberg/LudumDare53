@@ -82,11 +82,7 @@ namespace LD53
                 cage.OnUnlockerFinished(unlockersFinished);
             }
 
-            unlockersFinished++;
-            if(unlockersFinished >= Game.inst.refs.unlockers.Count)
-            {
-                Game.inst.TriggerEnding();
-            }
+            unlockersFinished++;            
         }
     }
 }

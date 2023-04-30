@@ -8,6 +8,8 @@ namespace LD53
     {
         [TextArea]
         public string stayInsideText;
+        [TextArea]
+        public List<string> unlockerTexts;
 
         [Header("Tutorials")]
         public string eggPickupTutorialText;

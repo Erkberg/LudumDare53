@@ -12,6 +12,7 @@ namespace LD53
         public List<Cage> cages;
         public List<Hatch> hatches;
         public List<Unlocker> unlockers;
+        public GameObject unlockerCam;
 
         public List<Cage> GetNextLockedCages(int amount)
         {

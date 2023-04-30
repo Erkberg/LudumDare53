@@ -34,7 +34,7 @@ namespace LD53
                 {
                     if(!unlocker.finished)
                     {
-                        unlocker.Finish();
+                        unlocker.CheatEnd();
                         break;
                     }
                 }

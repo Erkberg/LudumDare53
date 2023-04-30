@@ -22,6 +22,7 @@ namespace LD53
         private float startTime;
         private int currentNote;
         private bool active;
+        private int scoreTreshold = 1;
 
         public void SetActive()
         {
@@ -78,15 +79,36 @@ namespace LD53
             }            
         }
 
+        public void CheatEnd()
+        {
+            currentNote = 0;
+            score = scoreTreshold + 1;
+            startTime = 10000f;
+            StartCoroutine(EndSequence());
+        }
+
         private IEnumerator EndSequence()
         {
             yield return new WaitForSeconds(3f);
-            isRunning = false;            
-            Game.inst.refs.player.movement.movementEnabled = true;
+            isRunning = false;    
 
-            if (score > 0)
+            if (score > scoreTreshold)
             {
+                Game.inst.refs.unlockerCam.SetActive(true);
+                yield return new WaitForSeconds(1f);
                 Finish();
+                yield return new WaitForSeconds(3.33f);
+                Game.inst.ui.ShowStoryText(Game.inst.texts.unlockerTexts[id]);
+                if (Game.inst.stats.unlockersFinished >= Game.inst.refs.unlockers.Count)
+                {
+                    yield return new WaitForSeconds(9f);
+                    Game.inst.TriggerEnding();
+                }
+                else
+                {
+                    Game.inst.refs.player.movement.movementEnabled = true;
+                    Game.inst.refs.unlockerCam.SetActive(false);
+                }
             }
         }
 
