@@ -80,6 +80,33 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PanelCymbal"",
+                    ""type"": ""Button"",
+                    ""id"": ""99e86b33-bd76-4212-8779-462322be342a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PanelKick"",
+                    ""type"": ""Button"",
+                    ""id"": ""00943fdd-7637-4afd-af7a-ce5d63cf3e29"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PanelSnare"",
+                    ""type"": ""Button"",
+                    ""id"": ""4ac3bda5-4bac-4a47-adb1-4fb3c322dc61"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -320,7 +347,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -331,8 +358,74 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4afca75b-c543-4329-b659-fe410bf896df"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""PanelCymbal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c1e68db-d70b-4edf-b5c6-e82a268cd092"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PanelCymbal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d8167f8-c125-4916-99db-3bcfe956b451"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""PanelKick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff51c4a5-61f7-4441-8ac2-93ef232d5c41"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PanelKick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f4be091-f5cd-4c26-8c95-8687d213cb06"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""PanelSnare"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f84ce479-e992-4787-8e39-79e1a8b31053"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PanelSnare"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -360,6 +453,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Cheat = m_Player.FindAction("Cheat", throwIfNotFound: true);
         m_Player_CheatLevel = m_Player.FindAction("CheatLevel", throwIfNotFound: true);
         m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
+        m_Player_PanelCymbal = m_Player.FindAction("PanelCymbal", throwIfNotFound: true);
+        m_Player_PanelKick = m_Player.FindAction("PanelKick", throwIfNotFound: true);
+        m_Player_PanelSnare = m_Player.FindAction("PanelSnare", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -427,6 +523,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Cheat;
     private readonly InputAction m_Player_CheatLevel;
     private readonly InputAction m_Player_Menu;
+    private readonly InputAction m_Player_PanelCymbal;
+    private readonly InputAction m_Player_PanelKick;
+    private readonly InputAction m_Player_PanelSnare;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -437,6 +536,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Cheat => m_Wrapper.m_Player_Cheat;
         public InputAction @CheatLevel => m_Wrapper.m_Player_CheatLevel;
         public InputAction @Menu => m_Wrapper.m_Player_Menu;
+        public InputAction @PanelCymbal => m_Wrapper.m_Player_PanelCymbal;
+        public InputAction @PanelKick => m_Wrapper.m_Player_PanelKick;
+        public InputAction @PanelSnare => m_Wrapper.m_Player_PanelSnare;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -464,6 +566,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Menu.started += instance.OnMenu;
             @Menu.performed += instance.OnMenu;
             @Menu.canceled += instance.OnMenu;
+            @PanelCymbal.started += instance.OnPanelCymbal;
+            @PanelCymbal.performed += instance.OnPanelCymbal;
+            @PanelCymbal.canceled += instance.OnPanelCymbal;
+            @PanelKick.started += instance.OnPanelKick;
+            @PanelKick.performed += instance.OnPanelKick;
+            @PanelKick.canceled += instance.OnPanelKick;
+            @PanelSnare.started += instance.OnPanelSnare;
+            @PanelSnare.performed += instance.OnPanelSnare;
+            @PanelSnare.canceled += instance.OnPanelSnare;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -486,6 +597,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Menu.started -= instance.OnMenu;
             @Menu.performed -= instance.OnMenu;
             @Menu.canceled -= instance.OnMenu;
+            @PanelCymbal.started -= instance.OnPanelCymbal;
+            @PanelCymbal.performed -= instance.OnPanelCymbal;
+            @PanelCymbal.canceled -= instance.OnPanelCymbal;
+            @PanelKick.started -= instance.OnPanelKick;
+            @PanelKick.performed -= instance.OnPanelKick;
+            @PanelKick.canceled -= instance.OnPanelKick;
+            @PanelSnare.started -= instance.OnPanelSnare;
+            @PanelSnare.performed -= instance.OnPanelSnare;
+            @PanelSnare.canceled -= instance.OnPanelSnare;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -529,5 +649,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnCheat(InputAction.CallbackContext context);
         void OnCheatLevel(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+        void OnPanelCymbal(InputAction.CallbackContext context);
+        void OnPanelKick(InputAction.CallbackContext context);
+        void OnPanelSnare(InputAction.CallbackContext context);
     }
 }

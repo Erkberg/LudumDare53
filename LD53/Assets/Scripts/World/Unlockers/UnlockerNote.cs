@@ -11,6 +11,13 @@ namespace LD53
         public Vector3 moveDir;
         public float speed;
 
+        public enum Type
+        {
+            Cymbal,
+            Kick,
+            Snare
+        }
+
         private void Update()
         {
             Move();

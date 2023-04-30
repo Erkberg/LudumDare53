@@ -7,24 +7,75 @@ namespace LD53
     public class UnlockerPanel : Interactable
     {
         public Unlocker unlocker;
-        public int id;
+        public UnlockerNote.Type type;
         public Transform notesHolder;
         public Animator animator;
+        public GameObject tutorial;
+        public bool currentlyInteracting;
 
         private UnlockerNote currentNote;
         private bool justHit;
+        private GameInput input;
 
         private const string WrongNoteTrigger = "wrong";
         private const string RightNoteTrigger = "right";
 
+        private void Awake()
+        {
+            input = Game.inst.input;
+        }
+
         private void Update()
         {
             justHit = false;
+
+            if(IsActive() && unlocker.isRunning)
+            {
+                CheckInput();
+            }
         }
 
         public void Activate()
         {
             animator.gameObject.SetActive(true);
+            tutorial.SetActive(true);
+        }
+
+        public bool IsActive()
+        {
+            return animator.gameObject.activeSelf;
+        }
+
+        public void Finish()
+        {
+            tutorial.SetActive(false);
+        }
+
+        private void CheckInput()
+        {
+            switch (type)
+            {
+                case UnlockerNote.Type.Cymbal:
+                    if(input.GetPanelCymbalButtonDown())
+                    {
+                        OnInteraction();
+                    }
+                    break;
+
+                case UnlockerNote.Type.Kick:
+                    if (input.GetPanelKickButtonDown())
+                    {
+                        OnInteraction();
+                    }
+                    break;
+
+                case UnlockerNote.Type.Snare:
+                    if (input.GetPanelSnareButtonDown())
+                    {
+                        OnInteraction();
+                    }
+                    break;
+            }
         }
 
         public bool OnInteraction()

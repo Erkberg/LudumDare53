@@ -44,6 +44,21 @@ namespace LD53
             return controls.Player.Menu.WasPressedThisFrame();
         }
 
+        public bool GetPanelKickButtonDown()
+        {
+            return controls.Player.PanelKick.WasPressedThisFrame();
+        }
+
+        public bool GetPanelCymbalButtonDown()
+        {
+            return controls.Player.PanelCymbal.WasPressedThisFrame();
+        }
+
+        public bool GetPanelSnareButtonDown()
+        {
+            return controls.Player.PanelSnare.WasPressedThisFrame();
+        }
+
         public bool GetCheatLevelButtonDown()
         {
             return controls.Player.CheatLevel.WasPressedThisFrame();

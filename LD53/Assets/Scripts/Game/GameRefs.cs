@@ -8,6 +8,7 @@ namespace LD53
     public class GameRefs : MonoBehaviour
     {
         public PlayerController player;
+        public AudioClip music;
         public List<Cage> cages;
         public List<Hatch> hatches;
         public List<Unlocker> unlockers;

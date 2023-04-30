@@ -17,8 +17,8 @@ namespace LD53
         public int score;
         public bool finished;
         public Vector3 noteRot;
+        public bool isRunning;
 
-        private bool isRunning;
         private float startTime;
         private int currentNote;
         private bool active;
@@ -43,6 +43,8 @@ namespace LD53
             Game.inst.refs.player.movement.SetPosition(entryPoint.playerPosition.position);
             Game.inst.refs.player.movement.movementEnabled = false;
 
+            Game.inst.audio.PlayMusic(track.music);
+
             score = 0;
             currentNote = 0;
             startTime = Time.time;
@@ -62,14 +64,9 @@ namespace LD53
             if(currentNote >= track.notes.Count)
             {
                 // end song with delay
-                isRunning = false;
-                currentNote = 0;                
-                Game.inst.refs.player.movement.movementEnabled = true;
-
-                if(score > 0)
-                {
-                    Finish();
-                }
+                currentNote = 0;
+                startTime = 10000f;
+                StartCoroutine(EndSequence());
             }
             else
             {
@@ -81,18 +78,35 @@ namespace LD53
             }            
         }
 
+        private IEnumerator EndSequence()
+        {
+            yield return new WaitForSeconds(3f);
+            isRunning = false;            
+            Game.inst.refs.player.movement.movementEnabled = true;
+
+            if (score > 0)
+            {
+                Finish();
+            }
+        }
+
         public void Finish()
         {
             Debug.Log($"finish unlocker {id}");
+            foreach (UnlockerPanel panel in panels)
+            {
+                panel.Finish();
+            }
             finished = true;
             onFinish.SetActive(true);
             entryPoint.Finish();
+            Game.inst.audio.PlayMusic(Game.inst.refs.music);
             Game.inst.stats.OnUnlockerFinished();
         }
 
         private void SpawnNextNote(UnlockerNoteData noteData)
         {
-            UnlockerPanel panel = panels[noteData.value];
+            UnlockerPanel panel = GetPanelByType(noteData.type);
             UnlockerNote note = Instantiate(notePrefab, panel.transform);
             note.transform.position = panel.targetPosition.position - noteDir.forward * 2;
             note.moveDir = noteDir.forward;
@@ -100,6 +114,11 @@ namespace LD53
             note.transform.localEulerAngles = noteRot;
 
             currentNote++;
+        }
+
+        private UnlockerPanel GetPanelByType(UnlockerNote.Type type)
+        {
+            return panels.Find(x => x.type == type);
         }
 
         public void OnHitNote()

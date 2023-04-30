@@ -12,29 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567ac92f426836a499628078b5010e1b, type: 3}
   m_Name: UnlockerTrack_01
   m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: 851f9cf7a36032741b34660ad362fb8e, type: 3}
   notes:
-  - value: 0
-    time: 1
-  - value: 0
-    time: 2
-  - value: 0
-    time: 3
-  - value: 0
-    time: 4
-  - value: 0
-    time: 4.5
-  - value: 0
-    time: 5
-  - value: 0
-    time: 5.5
-  - value: 0
-    time: 6
-  - value: 0
-    time: 8
-  - value: 0
-    time: 10
-  - value: 0
-    time: 12
-  - value: 0
-    time: 14
-  speed: 1
+  - type: 0
+    time: 0.5
+  - type: 0
+    time: 1.5
+  - type: 0
+    time: 2.5
+  - type: 0
+    time: 3.5
+  - type: 0
+    time: 4.25
+  - type: 0
+    time: 5.25
+  - type: 0
+    time: 6.25
+  - type: 0
+    time: 7.25
+  - type: 0
+    time: 7.75
+  speed: 0.875

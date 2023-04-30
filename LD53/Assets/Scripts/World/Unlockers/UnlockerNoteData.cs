@@ -7,7 +7,7 @@ namespace LD53
     [System.Serializable]
     public class UnlockerNoteData
     {
-        public int value;
+        public UnlockerNote.Type type;
         public float time;
     }
 }
